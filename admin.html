@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bookings Admin — SV New Deluxe Lodge</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --blue-dark: #0f3d6e;
+      --blue-main: #1a5c96;
+      --blue-light: #e8f0f9;
+      --amber: #e8a020;
+      --green: #2a7d4f;
+      --red: #c0392b;
+      --text-dark: #1a1f2e;
+      --text-mid: #3d4454;
+      --text-muted: #6b7385;
+      --border: #dde3ed;
+      --bg: #f7f9fc;
+      --white: #fff;
+      --font: 'Inter', sans-serif;
+    }
+    body { font-family: var(--font); background: var(--bg); color: var(--text-dark); min-height: 100vh; }
+
+    /* HEADER */
+    .admin-header {
+      background: linear-gradient(135deg, var(--blue-dark), var(--blue-main));
+      padding: 20px 24px;
+      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;
+    }
+    .header-brand { display: flex; align-items: center; gap: 12px; }
+    .header-icon {
+      width: 44px; height: 44px; background: rgba(255,255,255,0.18);
+      border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #fff;
+    }
+    .header-title { color: #fff; font-size: 1.1rem; font-weight: 800; }
+    .header-sub { color: rgba(255,255,255,0.6); font-size: 0.78rem; margin-top: 2px; }
+    .header-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+
+    /* BUTTONS */
+    .btn { display: inline-flex; align-items: center; gap: 7px; padding: 10px 18px; border-radius: 8px;
+           font-size: 0.88rem; font-weight: 700; cursor: pointer; border: none; font-family: var(--font);
+           transition: opacity 0.2s, transform 0.15s; }
+    .btn:active { transform: scale(0.96); }
+    .btn-export { background: var(--amber); color: #1a1a1a; }
+    .btn-export:hover { opacity: 0.9; }
+    .btn-clear  { background: rgba(255,255,255,0.15); color: #fff; border: 1px solid rgba(255,255,255,0.25); }
+    .btn-clear:hover  { background: rgba(255,255,255,0.22); }
+    .btn-site   { background: #fff; color: var(--blue-dark); }
+    .btn-site:hover { opacity: 0.9; }
+    .btn-del    { background: #fee2e2; color: var(--red); padding: 6px 12px; font-size: 0.78rem; border-radius: 6px; }
+    .btn-del:hover { background: #fecaca; }
+
+    /* STATS */
+    .stats-row { display: flex; flex-wrap: wrap; gap: 14px; padding: 24px 24px 0; }
+    .stat-card {
+      background: var(--white); border: 1px solid var(--border); border-radius: 12px;
+      padding: 18px 22px; flex: 1; min-width: 140px;
+    }
+    .stat-val { font-size: 2rem; font-weight: 800; color: var(--blue-dark); line-height: 1; }
+    .stat-label { font-size: 0.78rem; color: var(--text-muted); margin-top: 4px; }
+
+    /* MAIN */
+    .main { padding: 24px; }
+
+    /* SEARCH / FILTER */
+    .toolbar { display: flex; gap: 10px; margin-bottom: 18px; flex-wrap: wrap; align-items: center; }
+    .search-box {
+      flex: 1; min-width: 200px; padding: 10px 14px; border: 1.5px solid var(--border);
+      border-radius: 8px; font-size: 0.9rem; font-family: var(--font); outline: none;
+      transition: border-color 0.2s;
+    }
+    .search-box:focus { border-color: var(--blue-main); }
+    .filter-sel {
+      padding: 10px 14px; border: 1.5px solid var(--border); border-radius: 8px;
+      font-size: 0.88rem; font-family: var(--font); outline: none; background: #fff;
+      cursor: pointer;
+    }
+
+    /* TABLE */
+    .table-wrap { background: var(--white); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; overflow-x: auto; }
+    table { width: 100%; border-collapse: collapse; min-width: 800px; }
+    thead { background: var(--blue-dark); color: #fff; }
+    thead th { padding: 13px 16px; text-align: left; font-size: 0.78rem; font-weight: 700;
+               letter-spacing: 0.06em; text-transform: uppercase; white-space: nowrap; }
+    tbody tr { border-bottom: 1px solid var(--border); transition: background 0.15s; }
+    tbody tr:last-child { border-bottom: none; }
+    tbody tr:hover { background: var(--blue-light); }
+    tbody td { padding: 12px 16px; font-size: 0.88rem; color: var(--text-dark); vertical-align: middle; }
+    .td-name { font-weight: 600; }
+    .td-phone { font-family: monospace; font-size: 0.92rem; color: var(--blue-main); }
+    .td-date { white-space: nowrap; color: var(--text-mid); }
+    .td-room { font-weight: 600; color: var(--amber); }
+    .badge {
+      display: inline-block; padding: 3px 10px; border-radius: 20px;
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.04em;
+    }
+    .badge-hospital { background: #fee2e2; color: #c0392b; }
+    .badge-transit  { background: #dbeafe; color: #1a5c96; }
+    .badge-work     { background: #fef9c3; color: #92400e; }
+    .badge-personal { background: #f3e8ff; color: #6b21a8; }
+    .badge-none     { background: #f1f5f9; color: #64748b; }
+    .td-msg { max-width: 160px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--text-muted); font-size: 0.82rem; }
+
+    /* EMPTY STATE */
+    .empty-state { text-align: center; padding: 60px 20px; color: var(--text-muted); }
+    .empty-icon { font-size: 3rem; margin-bottom: 12px; }
+    .empty-state h3 { font-size: 1.1rem; color: var(--text-dark); margin-bottom: 6px; }
+    .empty-state p { font-size: 0.9rem; }
+
+    /* TOAST */
+    .toast {
+      position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%) translateY(100px);
+      background: var(--green); color: #fff; padding: 12px 24px; border-radius: 8px;
+      font-size: 0.9rem; font-weight: 600; box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+      transition: transform 0.3s ease; z-index: 999; white-space: nowrap;
+    }
+    .toast.show { transform: translateX(-50%) translateY(0); }
+
+    @media (max-width: 600px) {
+      .admin-header { padding: 16px; }
+      .main, .stats-row { padding: 16px; }
+      .stat-val { font-size: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <div class="admin-header">
+    <div class="header-brand">
+      <div class="header-icon">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22"><path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/></svg>
+      </div>
+      <div>
+        <div class="header-title">Bookings Admin</div>
+        <div class="header-sub">SV New Deluxe Lodge · Gajuwaka, Visakhapatnam</div>
+      </div>
+    </div>
+    <div class="header-actions">
+      <a href="index.html" class="btn btn-site">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+        Main Site
+      </a>
+      <button class="btn btn-export" id="exportBtn" onclick="exportToCSV()">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+        Export to Excel
+      </button>
+      <button class="btn btn-clear" onclick="confirmClear()">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"/></svg>
+        Clear All
+      </button>
+    </div>
+  </div>
+
+  <!-- STATS -->
+  <div class="stats-row" id="statsRow">
+    <div class="stat-card">
+      <div class="stat-val" id="statTotal">0</div>
+      <div class="stat-label">Total Bookings</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-val" id="statToday">0</div>
+      <div class="stat-label">Today</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-val" id="statHospital">0</div>
+      <div class="stat-label">Hospital Visits</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-val" id="statSuites">0</div>
+      <div class="stat-label">Suite Bookings</div>
+    </div>
+  </div>
+
+  <!-- MAIN -->
+  <div class="main">
+    <div class="toolbar">
+      <input type="text" class="search-box" id="searchBox" placeholder="🔍  Search by name or phone..." oninput="renderTable()" />
+      <select class="filter-sel" id="purposeFilter" onchange="renderTable()">
+        <option value="">All Purposes</option>
+        <option value="hospital">Hospital Visit</option>
+        <option value="transit">Transit</option>
+        <option value="work">Work</option>
+        <option value="personal">Personal</option>
+      </select>
+    </div>
+
+    <div class="table-wrap">
+      <table id="bookingsTable">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Submitted At</th>
+            <th>Guest Name</th>
+            <th>Phone</th>
+            <th>Check-In</th>
+            <th>Check-Out</th>
+            <th>Room Type</th>
+            <th>Purpose</th>
+            <th>Notes</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="tableBody"></tbody>
+      </table>
+      <div class="empty-state" id="emptyState" style="display:none;">
+        <div class="empty-icon">📋</div>
+        <h3>No Bookings Yet</h3>
+        <p>Bookings submitted through the main site will appear here.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOAST -->
+  <div class="toast" id="toast"></div>
+
+  <script>
+    const API_URL = '/api/bookings';
+
+    async function getBookings() {
+      try {
+        const res = await fetch(API_URL);
+        return await res.json();
+      } catch {
+        return [];
+      }
+    }
+
+    async function saveBookings(data) {
+      // Direct array save is not supported in this simple API yet, but we will mock it 
+      // by deleting all and appending, or just skip it since we only delete.
+    }
+
+    const purposeLabels = {
+      hospital: 'Hospital Visit',
+      transit:  'Transit',
+      work:     'Work',
+      personal: 'Personal',
+      '':       '—'
+    };
+    const purposeBadge = {
+      hospital: 'badge-hospital',
+      transit:  'badge-transit',
+      work:     'badge-work',
+      personal: 'badge-personal',
+      '':       'badge-none'
+    };
+
+    function fmtDate(d) {
+      if (!d) return '—';
+      return new Date(d + 'T00:00:00').toLocaleDateString('en-IN', { day: '2-digit', month: 'short', year: 'numeric' });
+    }
+
+    function updateStats(bookings) {
+      const today = new Date().toLocaleDateString('en-IN');
+      document.getElementById('statTotal').textContent    = bookings.length;
+      document.getElementById('statToday').textContent    = bookings.filter(b => b.submittedAt && b.submittedAt.startsWith(today.split('/')[0])).length;
+      document.getElementById('statHospital').textContent = bookings.filter(b => b.purpose === 'hospital').length;
+      document.getElementById('statSuites').textContent   = bookings.filter(b => b.roomType && b.roomType.includes('Suite')).length;
+    }
+
+    async function renderTable() {
+      const all    = await getBookings();
+      const search = document.getElementById('searchBox').value.toLowerCase();
+      const filter = document.getElementById('purposeFilter').value;
+
+      const filtered = all.filter(b => {
+        const matchSearch = !search || (b.name && b.name.toLowerCase().includes(search)) || (b.phone && b.phone.includes(search));
+        const matchFilter = !filter || b.purpose === filter;
+        return matchSearch && matchFilter;
+      }).reverse(); // newest first
+
+      updateStats(all);
+
+      const tbody = document.getElementById('tableBody');
+      const empty = document.getElementById('emptyState');
+
+      if (filtered.length === 0) {
+        tbody.innerHTML = '';
+        empty.style.display = 'block';
+        return;
+      }
+      empty.style.display = 'none';
+
+      tbody.innerHTML = filtered.map((b, i) => `
+        <tr>
+          <td style="color:var(--text-muted);font-size:0.78rem;">${filtered.length - i}</td>
+          <td class="td-date">${b.submittedAt || '—'}</td>
+          <td class="td-name">${escHtml(b.name)}</td>
+          <td class="td-phone">${b.phone}</td>
+          <td class="td-date">${fmtDate(b.checkIn)}</td>
+          <td class="td-date">${fmtDate(b.checkOut)}</td>
+          <td class="td-room">${b.roomType || '—'}</td>
+          <td><span class="badge ${purposeBadge[b.purpose] || 'badge-none'}">${purposeLabels[b.purpose] || '—'}</span></td>
+          <td class="td-msg" title="${escHtml(b.message || '')}">${escHtml(b.message || '—')}</td>
+          <td></td>
+        </tr>
+      `).join('');
+    }
+
+    function escHtml(str) {
+      return String(str || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+    }
+
+    async function deleteBooking(id) {
+      showToast('Single delete not supported yet via API.');
+    }
+
+    async function confirmClear() {
+      if (!confirm('Clear ALL bookings? This cannot be undone.')) return;
+      try {
+        await fetch(API_URL, { method: 'DELETE' });
+        renderTable();
+        showToast('All bookings cleared');
+      } catch (e) {
+        showToast('Error clearing bookings');
+      }
+    }
+
+    async function exportToCSV() {
+      const bookings = await getBookings();
+      if (bookings.length === 0) { showToast('No bookings to export'); return; }
+
+      const headers = ['#','Submitted At','Guest Name','Phone','Check-In','Check-Out','Room Type','Purpose','Special Requests'];
+      const rows = bookings.map((b, i) => [
+        i + 1,
+        `"${b.submittedAt || ''}"`,
+        `"${b.name}"`,
+        `"${b.phone}"`,
+        `"${fmtDate(b.checkIn)}"`,
+        `"${fmtDate(b.checkOut)}"`,
+        `"${b.roomType || ''}"`,
+        `"${purposeLabels[b.purpose] || ''}"`,
+        `"${(b.message || '').replace(/"/g, '""')}"`
+      ]);
+
+      const csvContent = [headers.join(','), ...rows.map(r => r.join(','))].join('\r\n');
+      const BOM = '\uFEFF'; // UTF-8 BOM so Excel reads Indian characters correctly
+      const blob = new Blob([BOM + csvContent], { type: 'text/csv;charset=utf-8;' });
+      const url  = URL.createObjectURL(blob);
+      const a    = document.createElement('a');
+      const date = new Date().toLocaleDateString('en-IN').replace(/\//g,'-');
+      a.href     = url;
+      a.download = `SV_Lodge_Bookings_${date}.csv`;
+      a.click();
+      URL.revokeObjectURL(url);
+      showToast(`✅ Exported ${bookings.length} bookings to Excel`);
+    }
+
+    function showToast(msg, duration = 3000) {
+      const t = document.getElementById('toast');
+      t.textContent = msg;
+      t.classList.add('show');
+      setTimeout(() => t.classList.remove('show'), duration);
+    }
+
+    // Init
+    renderTable();
+  </script>
+</body>
+</html>
