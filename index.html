@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="SV New Deluxe Lodge – Budget lodge near hospital main gate, bus stop, and Balacheruvu Road junction in Kurmannapalem, Gajuwaka, Visakhapatnam. 5.0 Google rating. Book your stay now." />
+  <meta name="keywords"
+    content="lodge near hospital Visakhapatnam, Gajuwaka lodge, Kurmannapalem stay, budget lodge Vizag, SV New Deluxe Lodge" />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:title" content="SV New Deluxe Lodge – Near Hospital, Gajuwaka, Visakhapatnam" />
+  <meta property="og:description"
+    content="Convenient, affordable stay right near the hospital main gate and bus stop. 5.0 Google rated lodge in Kurmannapalem, Gajuwaka." />
+  <meta property="og:type" content="website" />
+  <title>SV New Deluxe Lodge | Near Hospital Gate · Gajuwaka, Visakhapatnam</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- ====== STICKY TOP BAR ====== -->
+  <div class="sticky-bar" id="stickyBar">
+    <div class="sticky-inner">
+      <span class="sticky-name">SV New Deluxe Lodge</span>
+      <div class="sticky-actions">
+        <button class="btn-book-sm" id="stickyBookBtn" onclick="openBooking()">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14">
+            <path
+              d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z" />
+          </svg>
+          Book Now
+        </button>
+        <a href="tel:+919553083666" class="btn-call-sm" id="stickyCallBtn" aria-label="Call SV New Deluxe Lodge">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14">
+            <path
+              d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z" />
+          </svg>
+          Call
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====== HERO SECTION ====== -->
+  <section class="hero" id="home"
+    style="background-image:url('images/exterior.jpg'); background-size:cover; background-position:center;">
+    <div class="hero-inner">
+
+      <!-- Brand -->
+      <div class="brand-block">
+        <div class="brand-logo">
+          <svg viewBox="0 0 48 48" width="44" height="44" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="4" y="18" width="40" height="26" rx="2" fill="#1a5c96" opacity="0.15" />
+            <rect x="8" y="18" width="32" height="26" rx="2" fill="#1a5c96" opacity="0.3" />
+            <polygon points="2,20 24,4 46,20" fill="#1a5c96" />
+            <rect x="18" y="30" width="12" height="14" rx="1" fill="#fff" opacity="0.9" />
+            <rect x="10" y="24" width="6" height="6" rx="0.5" fill="#fff" opacity="0.8" />
+            <rect x="32" y="24" width="6" height="6" rx="0.5" fill="#fff" opacity="0.8" />
+          </svg>
+        </div>
+        <div class="brand-text">
+          <h1 class="brand-name">SV New Deluxe Lodge</h1>
+          <p class="brand-sub">Kurmannapalem, Gajuwaka, Visakhapatnam</p>
+        </div>
+      </div>
+
+      <!-- Rating Trust Signal -->
+      <div class="rating-badge" id="ratingBadge">
+        <div class="rating-stars" aria-label="5 out of 5 stars">
+          <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+        </div>
+        <div class="rating-text">
+          <strong>5.0</strong> Google Rating
+        </div>
+      </div>
+
+      <!-- Hero Headline -->
+      <div class="hero-headline">
+        <h2 class="headline-main">Experience Luxury<br />in the Heart of Gajuwaka.</h2>
+        <p class="headline-sub">Premium A/C & Suite Rooms near the Hospital Main Gate. Impeccable service, refined
+          comfort, and elegant spaces for your stay.</p>
+      </div>
+
+      <!-- Location Pillars -->
+      <div class="location-pillars">
+        <div class="location-pill" id="pill-hospital">
+          <div class="pill-icon hospital-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+              <path
+                d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 3c.55 0 1 .45 1 1v3h3c.55 0 1 .45 1 1s-.45 1-1 1h-3v3c0 .55-.45 1-1 1s-1-.45-1-1v-3H8c-.55 0-1-.45-1-1s.45-1 1-1h3V7c0-.55.45-1 1-1z" />
+            </svg>
+          </div>
+          <div class="pill-text">
+            <span class="pill-label">Near Hospital</span>
+            <span class="pill-detail">Main Gate, Walking Distance</span>
+          </div>
+        </div>
+        <div class="location-pill" id="pill-bus">
+          <div class="pill-icon bus-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+              <path
+                d="M4 16c0 .88.39 1.67 1 2.22V20c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h8v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1.78c.61-.55 1-1.34 1-2.22V6c0-3.5-3.58-4-8-4s-8 .5-8 4v10zm3.5 1c-.83 0-1.5-.67-1.5-1.5S6.67 14 7.5 14s1.5.67 1.5 1.5S8.33 17 7.5 17zm9 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm1.5-6H6V6h12v5z" />
+            </svg>
+          </div>
+          <div class="pill-text">
+            <span class="pill-label">Near Bus Stop</span>
+            <span class="pill-detail">Convenient Public Transport</span>
+          </div>
+        </div>
+        <div class="location-pill" id="pill-road">
+          <div class="pill-icon road-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+              <path
+                d="M1.5 15h21v2h-21zm5.26-9l4.04 2h2.4l4.04-2H20L12 2 4 6h2.76zM12 4.88L16 7H8l4-2.12zM2.5 10l1 4h17l1-4H2.5zm6.5 3H7v-2h2v2zm4 0h-2v-2h2v2zm4 0h-2v-2h2v2z" />
+            </svg>
+          </div>
+          <div class="pill-text">
+            <span class="pill-label">Opposite Balacheruvu Road</span>
+            <span class="pill-detail">Easy to Find, Key Junction</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA Buttons -->
+      <div class="hero-ctas">
+        <button class="btn-book-hero" id="heroBookBtn" onclick="openBooking()">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22">
+            <path
+              d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z" />
+          </svg>
+          Book Your Stay
+        </button>
+        <a href="tel:+919553083666" class="btn-call" id="heroCallBtn" aria-label="Call SV New Deluxe Lodge now">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22">
+            <path
+              d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z" />
+          </svg>
+          Call Now
+        </a>
+        <a href="https://maps.google.com/?q=SV+New+Deluxe+Lodge+Kurmannapalem+Gajuwaka+Visakhapatnam" target="_blank"
+          rel="noopener" class="btn-directions" id="heroDirBtn" aria-label="Get directions">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22">
+            <path
+              d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+          </svg>
+          Directions
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ====== LUXURY ROOMS SECTION ====== -->
+  <section class="section rooms-section" id="rooms">
+    <div class="container">
+      <div class="section-label">Accommodation</div>
+      <h2 class="section-title">Our Premium Rooms</h2>
+      <p class="section-desc">Choose from our elegantly appointed suites and rooms, designed for ultimate comfort and
+        relaxation.</p>
+
+      <div class="rooms-grid">
+        <!-- Room 1 -->
+        <div class="room-card">
+          <div class="room-img-wrap">
+            <img src="images/room1.jpg" alt="Classic Room" loading="lazy">
+            <div class="room-price">₹600 <span>/ 3 Hrs</span></div>
+          </div>
+          <div class="room-info">
+            <h3 class="room-title">Classic Non-A/C Room</h3>
+            <p class="room-desc">A refined, comfortable space perfect for short transit stays with essential amenities.
+            </p>
+            <ul class="room-features">
+              <li>Premium Bedding</li>
+              <li>En-suite Bathroom</li>
+              <li>24/7 Room Service</li>
+            </ul>
+            <button class="btn-room-book" onclick="openBooking('Classic Non-A/C')">Book This Room</button>
+          </div>
+        </div>
+
+        <!-- Room 2 -->
+        <div class="room-card">
+          <div class="room-img-wrap">
+            <img src="images/room2.jpg" alt="Premium AC Room" loading="lazy">
+            <div class="room-price">₹800 <span>/ 6 Hrs</span></div>
+          </div>
+          <div class="room-info">
+            <h3 class="room-title">Premium A/C Room</h3>
+            <p class="room-desc">Experience cool tranquility. Features elegant decor, blackout curtains, and climate
+              control.</p>
+            <ul class="room-features">
+              <li>Air Conditioning</li>
+              <li>Flat-screen TV</li>
+              <li>Complimentary Wi-Fi</li>
+            </ul>
+            <button class="btn-room-book" onclick="openBooking('Premium A/C')">Book This Room</button>
+          </div>
+        </div>
+
+        <!-- Room 3 -->
+        <div class="room-card highlight-card">
+          <div class="room-img-wrap">
+            <img src="images/room2.jpg" alt="Luxury Suite" loading="lazy">
+            <div class="room-price">₹1000 <span>/ 12 Hrs</span></div>
+            <div class="room-badge">Most Popular</div>
+          </div>
+          <div class="room-info">
+            <h3 class="room-title">Executive Suite</h3>
+            <p class="room-desc">Our most luxurious offering. Spacious layout with premium furnishings and priority
+              service.</p>
+            <ul class="room-features">
+              <li>Spacious Layout</li>
+              <li>Premium A/C</li>
+              <li>Luxury Toiletries</li>
+            </ul>
+            <button class="btn-room-book" onclick="openBooking('Executive Suite')">Book The Suite</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== ADDRESS BAR ====== -->
+  <div class="address-bar" id="address">
+    <div class="address-inner">
+      <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
+        <path
+          d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+      </svg>
+      <span>Kurmannapalem, Gajuwaka, Visakhapatnam — Near Hospital Main Gate, Opposite Balacheruvu Road</span>
+    </div>
+  </div>
+
+  <!-- ====== PHOTO GALLERY ====== -->
+  <section class="section gallery-section" id="gallery">
+    <div class="container">
+      <div class="section-label">Gallery</div>
+      <h2 class="section-title">A Glimpse of Elegance</h2>
+      <p class="section-desc">Take a virtual tour of our beautifully appointed rooms, welcoming reception, and majestic
+        entrance.</p>
+      <div class="gallery-grid">
+        <div class="gallery-item gallery-wide"
+          onclick="openLightbox('images/exterior.jpg','Lodge exterior — Kurmannapalem, Gajuwaka')">
+          <img src="images/exterior.jpg" alt="SV New Deluxe Lodge building exterior" loading="lazy" />
+          <div class="gallery-caption">Building Exterior</div>
+        </div>
+        <div class="gallery-item" onclick="openLightbox('images/entrance.jpg','Lodge entrance and gate')">
+          <img src="images/entrance.jpg" alt="Lodge entrance and gate" loading="lazy" />
+          <div class="gallery-caption">Entrance &amp; Gate</div>
+        </div>
+        <div class="gallery-item" onclick="openLightbox('images/reception.jpg','Premium Reception Desk')">
+          <img src="images/reception.jpg" alt="Lodge reception counter" loading="lazy" />
+          <div class="gallery-caption">Grand Reception</div>
+        </div>
+        <div class="gallery-item" onclick="openLightbox('images/room1.jpg','Classic Room')">
+          <img src="images/room1.jpg" alt="Lodge double room with wooden bed" loading="lazy" />
+          <div class="gallery-caption">Classic Non-A/C Room</div>
+        </div>
+        <div class="gallery-item" onclick="openLightbox('images/room2.jpg','Premium A/C Room')">
+          <img src="images/room2.jpg" alt="Lodge room with black curtains" loading="lazy" />
+          <div class="gallery-caption">Premium A/C Room</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== LIGHTBOX ====== -->
+  <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+    <button class="lightbox-close" onclick="closeLightbox()" aria-label="Close">&times;</button>
+    <img id="lightboxImg" src="" alt="" />
+    <p id="lightboxCaption"></p>
+  </div>
+
+  <!-- ====== LOCATION ADVANTAGE SECTION ====== -->
+  <section class="section location-section" id="location">
+    <div class="container">
+      <div class="section-label">Why Location Matters</div>
+      <h2 class="section-title">You Won't Find a More<br />Convenient Spot</h2>
+      <p class="section-desc">When urgency matters — reaching the hospital, catching a bus, or finding a place to rest —
+        being at the right spot makes every difference.</p>
+
+      <div class="advantage-grid">
+
+        <div class="advantage-card" id="adv-hospital">
+          <div class="adv-icon-wrap hospital-bg">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="28" height="28">
+              <path
+                d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 3c.55 0 1 .45 1 1v3h3c.55 0 1 .45 1 1s-.45 1-1 1h-3v3c0 .55-.45 1-1 1s-1-.45-1-1v-3H8c-.55 0-1-.45-1-1s.45-1 1-1h3V7c0-.55.45-1 1-1z" />
+            </svg>
+          </div>
+          <h3 class="adv-title">Near Hospital Main Gate</h3>
+          <p class="adv-desc">Ideal for patient families and visitors who need to be close. Step out and you're at the
+            gate — no auto, no stress, no distance.</p>
+          <div class="adv-tag">Walking Distance</div>
+        </div>
+
+        <div class="advantage-card" id="adv-bus">
+          <div class="adv-icon-wrap bus-bg">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="28" height="28">
+              <path
+                d="M4 16c0 .88.39 1.67 1 2.22V20c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h8v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1.78c.61-.55 1-1.34 1-2.22V6c0-3.5-3.58-4-8-4s-8 .5-8 4v10zm3.5 1c-.83 0-1.5-.67-1.5-1.5S6.67 14 7.5 14s1.5.67 1.5 1.5S8.33 17 7.5 17zm9 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm1.5-6H6V6h12v5z" />
+            </svg>
+          </div>
+          <h3 class="adv-title">Right Next to the Bus Stop</h3>
+          <p class="adv-desc">Transit travelers can check in, rest, and leave without any transport hassle. The bus stop
+            is steps away from the lodge entrance.</p>
+          <div class="adv-tag">Easy Access</div>
+        </div>
+
+        <div class="advantage-card" id="adv-road">
+          <div class="adv-icon-wrap road-bg">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="28" height="28">
+              <path d="M12 2L4 6v2h16V6l-8-4zm0 2.24L16.56 7H7.44L12 4.24zM4 9v11h3v-4h10v4h3V9H4zm2 9v-2h12v2H6z" />
+            </svg>
+          </div>
+          <h3 class="adv-title">Opposite Balacheruvu Road</h3>
+          <p class="adv-desc">At a key road junction — easy to find whether you're arriving by auto, bus, or on foot. A
+            clear landmark for first-time visitors.</p>
+          <div class="adv-tag">Easy to Find</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== MAP EMBED SECTION ====== -->
+  <section class="section map-section" id="map">
+    <div class="container">
+      <div class="section-label">Find Us Here</div>
+      <h2 class="section-title">Our Location</h2>
+      <div class="map-wrapper">
+        <iframe id="googleMapEmbed" title="SV New Deluxe Lodge Location on Google Maps"
+          src="https://maps.google.com/maps?q=Kurmannapalem,+Gajuwaka,+Visakhapatnam&output=embed&z=15" width="100%"
+          height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+      <div class="map-cta">
+        <a href="https://maps.google.com/?q=SV+New+Deluxe+Lodge+Kurmannapalem+Gajuwaka+Visakhapatnam" target="_blank"
+          rel="noopener" class="btn-directions-outline" id="mapDirBtn">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
+            <path
+              d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+          </svg>
+          Open in Google Maps
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== WHO IS THIS FOR ====== -->
+  <section class="section for-section" id="for-who">
+    <div class="container">
+      <div class="section-label">Who Stays Here</div>
+      <h2 class="section-title">Made for People Who<br />Need It Most</h2>
+      <p class="section-desc">We're not trying to be a five-star hotel. We're a reliable, clean, and well-located lodge
+        for people who just need a solid place to stay nearby.</p>
+      <div class="persona-grid">
+        <div class="persona-card" id="persona-family">
+          <div class="persona-icon">🏥</div>
+          <h3>Patient Families</h3>
+          <p>Stay close to your loved one. No long commutes, no uncertainty. The hospital is right there.</p>
+        </div>
+        <div class="persona-card" id="persona-visitor">
+          <div class="persona-icon">🧳</div>
+          <h3>Short-Stay Visitors</h3>
+          <p>Need a room for a day or two? Quick check-in, no fuss, right in the heart of Gajuwaka.</p>
+        </div>
+        <div class="persona-card" id="persona-transit">
+          <div class="persona-icon">🚌</div>
+          <h3>Transit Travelers</h3>
+          <p>Between journeys and need a rest stop? We're at the bus stop — come in, recharge, head out.</p>
+        </div>
+        <div class="persona-card" id="persona-budget">
+          <div class="persona-icon">💰</div>
+          <h3>Budget-Conscious Guests</h3>
+          <p>Fair pricing, honest stay. You get what you need without paying for what you don't.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== TRUST REINFORCEMENT ====== -->
+  <section class="section trust-section" id="trust">
+    <div class="container">
+      <div class="trust-block">
+        <div class="trust-rating-big">
+          <div class="big-stars" aria-label="5 stars rating">★★★★★</div>
+          <div class="big-score">5.0</div>
+          <div class="big-label">Rated on Google</div>
+        </div>
+        <div class="trust-divider"></div>
+        <div class="trust-quotes">
+          <div class="trust-quote" id="quote1">
+            <p>"Exactly where I needed it — right near the hospital gate. Clean rooms, easy access."</p>
+            <span class="quote-attr">— Google Review</span>
+          </div>
+          <div class="trust-quote" id="quote2">
+            <p>"Found it easily at the junction. Good value, no complaints. Will return if needed."</p>
+            <span class="quote-attr">— Google Review</span>
+          </div>
+          <div class="trust-quote" id="quote3">
+            <p>"Very convenient location. Perfect for hospital visits. Highly recommended."</p>
+            <span class="quote-attr">— Google Review</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== FINAL CTA SECTION ====== -->
+  <section class="section cta-section" id="contact">
+    <div class="container">
+      <div class="cta-block">
+        <div class="cta-text-block">
+          <h2 class="cta-title">Ready to Stay?<br />We're Right Here.</h2>
+          <p class="cta-sub">Call us to confirm availability or drop in directly. You'll find us easily — at the
+            junction, near the hospital gate, opposite Balacheruvu Road.</p>
+          <div class="address-full" id="fullAddress">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
+              <path
+                d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+            </svg>
+            <div>
+              <strong>SV New Deluxe Lodge</strong><br />
+              Kurmannapalem, Gajuwaka,<br />
+              Visakhapatnam, Andhra Pradesh<br />
+              <em>Near Hospital Main Gate · Opposite Balacheruvu Road</em>
+            </div>
+          </div>
+        </div>
+        <div class="cta-actions">
+          <a href="tel:+919553083666" class="btn-call-lg" id="ctaCallBtn" aria-label="Call SV New Deluxe Lodge">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
+              <path
+                d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z" />
+            </svg>
+            Call to Book Now
+          </a>
+          <a href="tel:+916302379873" class="btn-call-lg" id="ctaCall2Btn"
+            aria-label="Call SV New Deluxe Lodge alternate" style="background:var(--blue-main);color:#fff;">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
+              <path
+                d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z" />
+            </svg>
+            63023 79873
+          </a>
+          <a href="https://maps.google.com/?q=SV+New+Deluxe+Lodge+Kurmannapalem+Gajuwaka+Visakhapatnam" target="_blank"
+            rel="noopener" class="btn-dir-lg" id="ctaDirBtn" aria-label="Get directions to lodge">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
+              <path
+                d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+            </svg>
+            Get Directions
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== FOOTER ====== -->
+  <footer class="footer" id="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <strong>SV New Deluxe Lodge</strong>
+        <span>Kurmannapalem, Gajuwaka, Visakhapatnam</span>
+      </div>
+      <div class="footer-links">
+        <a href="#home">Home</a>
+        <a href="#location">Location</a>
+        <a href="#for-who">About</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="footer-note">
+        ★ 5.0 Google Rated · Near Hospital Main Gate · Near Bus Stop
+      </div>
+    </div>
+  </footer>
+
+  <!-- ====== FLOATING CALL BUTTON (MOBILE) ====== -->
+  <a href="tel:+919553083666" class="float-call" id="floatCallBtn" aria-label="Call SV New Deluxe Lodge">
+    <svg viewBox="0 0 24 24" fill="currentColor" width="26" height="26">
+      <path
+        d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z" />
+    </svg>
+  </a>
+
+  <!-- ====== BOOKING MODAL ====== -->
+  <div class="modal-overlay" id="bookingModal" role="dialog" aria-modal="true" aria-label="Book your stay"
+    onclick="handleOverlayClick(event)">
+    <div class="modal-box">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <div class="modal-title-wrap">
+          <div class="modal-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22">
+              <path
+                d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z" />
+            </svg>
+          </div>
+          <div>
+            <h2 class="modal-title">Book Your Stay</h2>
+            <p class="modal-subtitle">SV New Deluxe Lodge · Gajuwaka, Vizag</p>
+          </div>
+        </div>
+        <button class="modal-close" id="modalCloseBtn" onclick="closeBooking()"
+          aria-label="Close booking form">&times;</button>
+      </div>
+
+      <!-- Form -->
+      <form class="booking-form" id="bookingForm" onsubmit="submitBooking(event)" novalidate>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="guestName">Full Name <span class="req">*</span></label>
+            <input type="text" id="guestName" name="guestName" placeholder="Your full name" autocomplete="name"
+              required />
+            <span class="field-err" id="errName"></span>
+          </div>
+          <div class="form-group">
+            <label for="guestPhone">Phone Number <span class="req">*</span></label>
+            <input type="tel" id="guestPhone" name="guestPhone" placeholder="10-digit mobile number" autocomplete="tel"
+              inputmode="numeric" pattern="[0-9]*" maxlength="10" required />
+            <span class="field-err" id="errPhone"></span>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="checkIn">Check-in Date <span class="req">*</span></label>
+            <input type="date" id="checkIn" name="checkIn" required />
+            <span class="field-err" id="errCheckIn"></span>
+          </div>
+          <div class="form-group">
+            <label for="checkOut">Check-out Date <span class="req">*</span></label>
+            <input type="date" id="checkOut" name="checkOut" required />
+            <span class="field-err" id="errCheckOut"></span>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="roomType">Room Type <span class="req">*</span></label>
+            <select id="roomType" name="roomType" required>
+              <option value="">Select a room type</option>
+              <option value="Classic Non-A/C">Classic Non-A/C (₹600/3Hrs)</option>
+              <option value="Premium A/C">Premium A/C (₹800/6Hrs)</option>
+              <option value="Executive Suite">Executive Suite (₹1000/12Hrs)</option>
+            </select>
+            <span class="field-err" id="errRoomType"></span>
+          </div>
+          <div class="form-group">
+            <label for="purpose">Purpose of Stay</label>
+            <select id="purpose" name="purpose">
+              <option value="">Select purpose</option>
+              <option value="hospital">Hospital Visit / Patient Family</option>
+              <option value="transit">Transit / Short Stay</option>
+              <option value="work">Work / Business</option>
+              <option value="personal">Personal / Leisure</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="message">Special Requests <span class="optional">(optional)</span></label>
+          <textarea id="message" name="message" rows="3"
+            placeholder="Any specific requests or notes for the lodge..."></textarea>
+        </div>
+
+        <div class="form-notice">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16">
+            <path
+              d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z" />
+          </svg>
+          Booking request will be confirmed via phone call. Our team will contact you shortly.
+        </div>
+
+        <div class="form-actions">
+          <button type="button" class="btn-form-cancel" onclick="closeBooking()">Cancel</button>
+          <button type="submit" class="btn-form-submit" id="submitBtn">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
+              <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
+            </svg>
+            Confirm Booking
+          </button>
+        </div>
+      </form>
+
+      <!-- Success State -->
+      <div class="booking-success" id="bookingSuccess">
+        <div class="success-icon">✓</div>
+        <h3>Booking Request Sent!</h3>
+        <p>Thank you, <strong id="successName"></strong>. We'll call you at <strong id="successPhone"></strong> to
+          confirm your stay.</p>
+        <div class="success-detail">
+          <span>📅 Check-in: <strong id="successCheckIn"></strong></span>
+          <span>📅 Check-out: <strong id="successCheckOut"></strong></span>
+          <span>🛏️ Room: <strong id="successRoomType"></strong></span>
+        </div>
+        <button class="btn-form-submit" style="margin-top:20px;width:100%;" onclick="closeBooking()">Done</button>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+
+</html>
